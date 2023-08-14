@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn EJS</title>
+    <title>EJS tags</title>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <h2>Current second: <%= currentSeconds %></h2>
-    <% if(currentSeconds % 2 === 0) { %>
+    <h1>
+      <%= title %>
+    </h1>
+    <h2>Current second: 
+      <%= currentSeconds %>
+    </h2>
+    <% if (currentSeconds % 2===0) { %>
         <ul>
-            <% for(let i = 0; i < fruits.length; i++) { %>
-            <li><%= fruits[i] %></li>
-        </ul>           
-    <%} }else { %>
-            <p>No items to display</p>
+            <% for(let fruit of fruits) { %>
+              <li>
+                <%=fruit %>
+              </li>
+              <%} %>
+        </ul> 
+          
+    <% } else {%>
+        <p>No items to display</p>
     <% } %>
-    <p><%= htmlContent %></p>
-    <%- include{"footer.ejs"} %>
+    <p>
+      <%- htmlContent %>
+    </p>
+    <%- include("footer.ejs") %>
 </body>
 </html>
